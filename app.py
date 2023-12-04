@@ -41,16 +41,16 @@ def naver_news_crawling(keyword,pages):
         soup = bs(html_text,'html.parser')	# BeautifulSoup 객체 생성
 
         titles = soup.select('a.news_tit')	# 가져오려는 태그를 찾아서 넣어준다.
-        print("titles : " + titles)
+        st.write("titles : " + titles)
         for title_sen in titles:
             title = title_sen.get_text()
-            print("title : " + title)
+            st.write("title : " + title)
             all_text.append(title)
-            print("all_text : " + all_text)
+            st.write("all_text : " + all_text)
 
-    print("all_all_text : " + all_text)
+    st.write("all_all_text : " + all_text)
     all_text = list(all_text)
-    print("all_all_all_text : " + all_text)
+    st.write("all_all_all_text : " + all_text)
     return all_text
 
   except Exception as e:
@@ -102,9 +102,9 @@ def graphPrint(df, df_medium, df_change, df_all):
     st.pyplot(fig)
 
   with tab2:
-    print("select_stock : " + select_stock)
+    st.write("select_stock : " + select_stock)
     dfList = df['Close'].tail(20).values.tolist()
-    print(', '.join(map(str, dfList)))
+    st.write(', '.join(map(str, dfList)))
 
     st.subheader(select_stock + '에 대해')
     prompt1 = select_stock + "는 어떤 기업이며 어떤 일을 보통 해?"
@@ -117,17 +117,17 @@ def graphPrint(df, df_medium, df_change, df_all):
     #st.write(response2)
 
     keyword = select_stock
-    print("select_stock : " + select_stock)
+    st.write("select_stock : " + select_stock)
     pages = 10
     news_data = naver_news_crawling(keyword,pages)
-    print("news_data : " + news_data)
+    st.write("news_data : " + news_data)
     nouns_sen = []
     okt = Okt()
     for sen in news_data:
       nouns_sen.extend(okt.nouns(sen))
-    print("nouns_sen : " + nouns_sen)
+    st.write("nouns_sen : " + nouns_sen)
     count = Counter(nouns_sen).most_common(50)
-    print("count : " + count)
+    st.write("count : " + count)
     wc = WordCloud(font_path='NanumGothic.ttf'
                   , background_color='white', max_font_size = 100, max_words = 55, relative_scaling=.5, width = 300, height = 300)
     cloud = wc.generate_from_frequencies(dict(count))	# 워드클라우드(단어빈도) 설정

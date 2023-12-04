@@ -42,11 +42,12 @@ def naver_news_crawling(keyword,pages):
 
         titles = soup.select('a.news_tit')	# 가져오려는 태그를 찾아서 넣어준다.
         for title_sen in titles:
-            print(title_sen)
             title = title_sen.get_text()
+            print("title : " + title)
             all_text.append(title)
 
     all_text = list(all_text)
+    print("all_text : " + all_text)
     return all_text
 
   except Exception as e:

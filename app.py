@@ -118,7 +118,7 @@ def graphPrint(df, df_medium, df_change, df_all):
     for sen in news_data:
       nouns_sen.extend(okt.nouns(sen))
     count = Counter(nouns_sen).most_common(50)
-    wc = WordCloud(font_path='/NanumGothic.ttf'
+    wc = WordCloud(font_path='NanumGothic.ttf'
                   , background_color='white', max_font_size = 100, max_words = 55, relative_scaling=.5, width = 300, height = 300)
     cloud = wc.generate_from_frequencies(dict(count))	# 워드클라우드(단어빈도) 설정
 

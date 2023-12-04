@@ -42,6 +42,7 @@ def naver_news_crawling(keyword,pages):
 
         titles = soup.select('a.news_tit')	# 가져오려는 태그를 찾아서 넣어준다.
         for title_sen in titles:
+            print(title_sen)
             title = title_sen.get_text()
             all_text.append(title)
 
@@ -117,8 +118,10 @@ def graphPrint(df, df_medium, df_change, df_all):
     okt = Okt()
     for sen in news_data:
       nouns_sen.extend(okt.nouns(sen))
+    print(nouns_sen)
     count = Counter(nouns_sen).most_common(50)
-    wc = WordCloud(font_path='./NanumGothic.ttf'
+    print(count)
+    wc = WordCloud(font_path='NanumGothic.ttf'
                   , background_color='white', max_font_size = 100, max_words = 55, relative_scaling=.5, width = 300, height = 300)
     cloud = wc.generate_from_frequencies(dict(count))	# 워드클라우드(단어빈도) 설정
 

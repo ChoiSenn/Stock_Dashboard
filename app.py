@@ -102,13 +102,13 @@ def graphPrint(df, df_medium, df_change, df_all):
 
     st.subheader(select_stock + '에 대해')
     prompt1 = select_stock + "는 어떤 기업이며 어떤 일을 보통 해?"
-    response1 = get_completion(prompt1)
-    st.write(response1)
+    #response1 = get_completion(prompt1)
+    #st.write(response1)
 
     st.subheader(select_stock + ' 종목 분석')
     prompt2 = "주식 중 " + select_stock + "는 어떤 종목이야? 주로 어떤 성향의 투자자들이 관심을 갖는지, 단기 투자에 적절한지 장기 투자에 적절한지 정리해서 말해줘. 그리고 위의 내용을 바탕으로 " + select_stock + "에 투자할때의 팁을 말해줘. 경고 문구는 필요 없어."
-    response2 = get_completion(prompt2)
-    st.write(response2)
+    #response2 = get_completion(prompt2)
+    #st.write(response2)
 
     keyword = select_stock
     pages = 10
@@ -118,7 +118,7 @@ def graphPrint(df, df_medium, df_change, df_all):
     for sen in news_data:
       nouns_sen.extend(okt.nouns(sen))
     count = Counter(nouns_sen).most_common(50)
-    wc = WordCloud(font_path='NanumGothic.ttf'
+    wc = WordCloud(font_path='./NanumGothic.ttf'
                   , background_color='white', max_font_size = 100, max_words = 55, relative_scaling=.5, width = 300, height = 300)
     cloud = wc.generate_from_frequencies(dict(count))	# 워드클라우드(단어빈도) 설정
 

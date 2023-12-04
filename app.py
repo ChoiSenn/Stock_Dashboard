@@ -102,6 +102,7 @@ def graphPrint(df, df_medium, df_change, df_all):
     st.pyplot(fig)
 
   with tab2:
+    print("select_stock : " + select_stock)
     dfList = df['Close'].tail(20).values.tolist()
     print(', '.join(map(str, dfList)))
 

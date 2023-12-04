@@ -2,3 +2,17 @@ numpy
 pandas
 matplotlib
 streamlit
+seaborn
+FinanceDataReader
+tkinter.tix
+pyparsing
+datetime
+altair
+openai
+bs4
+requests
+selenium
+collections
+wordcloud
+konlpy.tag
+matplotlib.font_manager

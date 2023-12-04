@@ -41,16 +41,16 @@ def naver_news_crawling(keyword,pages):
         soup = bs(html_text,'html.parser')	# BeautifulSoup 객체 생성
 
         titles = soup.select('a.news_tit')	# 가져오려는 태그를 찾아서 넣어준다.
-        st.write("titles : " + titles)
+        st.write("titles : " , titles)
         for title_sen in titles:
             title = title_sen.get_text()
-            st.write("title : " + title)
+            st.write("title : " , title)
             all_text.append(title)
-            st.write("all_text : " + all_text)
+            st.write("all_text : " , all_text)
 
-    st.write("all_all_text : " + all_text)
+    st.write("all_all_text : " , all_text)
     all_text = list(all_text)
-    st.write("all_all_all_text : " + all_text)
+    st.write("all_all_all_text : " , all_text)
     return all_text
 
   except Exception as e:

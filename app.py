@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import openai
 
 # --- 뉴스 기사 크롤링 ---------------------------------------------------------------
 

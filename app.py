@@ -20,7 +20,6 @@ def naver_news_crawling(keyword,pages):
   try:
     chromeOptions_options = webdriver.ChromeOptions()	# 크롬 실행
     chromeOptions_options.add_argument("headless")	# 창을 띄우지 않고 실행
-    st.write("1")
     
     # start수를 1, 11, 21, 31 ...만들어 주는 함수, 페이지 수를 의미
     count = pages 		# 올바른 range 동작을 위해 +1
@@ -37,10 +36,8 @@ def naver_news_crawling(keyword,pages):
         url = 'https://search.naver.com/search.naver?where=news&sm=tab_pge&query=' +\
               keyword + '&start='+str(page_number)
 
-        st.write("url : " + url)
         response = requests.get(url)		# url 요청
         html_text = response.text		# html 형식으로 가져오기 위함
-        st.write("html_text : " + html_text)
         soup = bs(html_text,'html.parser')	# BeautifulSoup 객체 생성
 
         titles = soup.select('a.news_tit')	# 가져오려는 태그를 찾아서 넣어준다.
@@ -214,4 +211,5 @@ try:
   stock_code = stocks[stocks['Name']==select_stock]['Code'].to_string(index=False).strip()
   calcurGraph()
 except:
+  st.write('오류ㅠㅠ : ' + e)
   errorPrint()

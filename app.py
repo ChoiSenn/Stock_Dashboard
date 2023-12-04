@@ -2,16 +2,6 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-from datetime import datetime, timedelta
-import altair as alt
-import openai
-from bs4 import BeautifulSoup as bs
-import requests
-from selenium import webdriver
-from collections import Counter
-from wordcloud import WordCloud
-from konlpy.tag import *
-import matplotlib.font_manager as fm
 
 # --- 뉴스 기사 크롤링 ---------------------------------------------------------------
 

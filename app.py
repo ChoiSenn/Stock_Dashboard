@@ -20,7 +20,8 @@ def naver_news_crawling(keyword,pages):
   try:
     chromeOptions_options = webdriver.ChromeOptions()	# 크롬 실행
     chromeOptions_options.add_argument("headless")	# 창을 띄우지 않고 실행
-
+    st.write("1")
+    
     # start수를 1, 11, 21, 31 ...만들어 주는 함수, 페이지 수를 의미
     count = pages 		# 올바른 range 동작을 위해 +1
     page = []			# 페이지 수
@@ -36,8 +37,10 @@ def naver_news_crawling(keyword,pages):
         url = 'https://search.naver.com/search.naver?where=news&sm=tab_pge&query=' +\
               keyword + '&start='+str(page_number)
 
+        st.write("url : " + url)
         response = requests.get(url)		# url 요청
         html_text = response.text		# html 형식으로 가져오기 위함
+        st.write("html_text : " + html_text)
         soup = bs(html_text,'html.parser')	# BeautifulSoup 객체 생성
 
         titles = soup.select('a.news_tit')	# 가져오려는 태그를 찾아서 넣어준다.
@@ -102,9 +105,7 @@ def graphPrint(df, df_medium, df_change, df_all):
     st.pyplot(fig)
 
   with tab2:
-    st.write("select_stock : " + select_stock)
     dfList = df['Close'].tail(20).values.tolist()
-    st.write(', '.join(map(str, dfList)))
 
     st.subheader(select_stock + '에 대해')
     prompt1 = select_stock + "는 어떤 기업이며 어떤 일을 보통 해?"
@@ -117,7 +118,6 @@ def graphPrint(df, df_medium, df_change, df_all):
     #st.write(response2)
 
     keyword = select_stock
-    st.write("select_stock : " + select_stock)
     pages = 10
     news_data = naver_news_crawling(keyword,pages)
     st.write("news_data : " + news_data)

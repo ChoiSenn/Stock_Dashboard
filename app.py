@@ -39,7 +39,6 @@ def naver_news_crawling(keyword,pages):
         response = requests.get(url)		# url 요청
         html_text = response.text		# html 형식으로 가져오기 위함
         soup = bs(html_text,'html.parser')	# BeautifulSoup 객체 생성
-
         titles = soup.select('a.news_tit')	# 가져오려는 태그를 찾아서 넣어준다.
         for title_sen in titles:
             title = title_sen.get_text()

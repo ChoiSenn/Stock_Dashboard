@@ -107,8 +107,8 @@ def graphPrint(df, df_medium, df_change, df_all):
 
     st.subheader(select_stock + ' 종목 분석')
     prompt2 = "주식 중 " + select_stock + "는 어떤 종목이야? 주로 어떤 성향의 투자자들이 관심을 갖는지, 단기 투자에 적절한지 장기 투자에 적절한지 정리해서 말해줘. 그리고 위의 내용을 바탕으로 " + select_stock + "에 투자할때의 팁을 말해줘. 경고 문구는 필요 없어."
-    #response2 = get_completion(prompt2)
-    #st.write(response2)
+    response2 = get_completion(prompt2)
+    st.write(response2)
 
     keyword = select_stock
     pages = 10

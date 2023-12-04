@@ -8,7 +8,7 @@ tkinter.tix
 pyparsing
 datetime
 altair
-openai
+openai==1.3.2
 bs4
 requests
 selenium

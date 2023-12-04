@@ -116,8 +116,10 @@ def graphPrint(df, df_medium, df_change, df_all):
     #st.write(response2)
 
     keyword = select_stock
+    print("select_stock : " + select_stock)
     pages = 10
     news_data = naver_news_crawling(keyword,pages)
+    print("news_data : " + news_data)
     nouns_sen = []
     okt = Okt()
     for sen in news_data:

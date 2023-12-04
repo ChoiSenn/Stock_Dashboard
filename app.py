@@ -45,9 +45,11 @@ def naver_news_crawling(keyword,pages):
             title = title_sen.get_text()
             print("title : " + title)
             all_text.append(title)
+            print("all_text : " + all_text)
 
+    print("all_all_text : " + all_text)
     all_text = list(all_text)
-    print("all_text : " + all_text)
+    print("all_all_all_text : " + all_text)
     return all_text
 
   except Exception as e:

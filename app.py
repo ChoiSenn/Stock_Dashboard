@@ -43,7 +43,7 @@ def naver_news_crawling(keyword,pages):
 
 # --- chatGPT 세팅 ---------------------------------------------------------------
 
-openai.api_key = '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'
+openai.api_key = API_KEY
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]

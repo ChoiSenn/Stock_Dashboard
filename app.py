@@ -54,8 +54,7 @@ def naver_news_crawling(keyword,pages):
     return all_text
 
   except Exception as e:
-    st.write('오류ㅠㅠ : ' + str(e))
-    errorPrint()
+    st.write('오류ㅠㅠ : ', e)
 
 # --- chatGPT 세팅 ---------------------------------------------------------------
 
@@ -211,5 +210,5 @@ try:
   stock_code = stocks[stocks['Name']==select_stock]['Code'].to_string(index=False).strip()
   calcurGraph()
 except Exception as e:
-  st.write('오류ㅠㅠ : ' + str(e))
+  st.write('오류ㅠㅠ : ', e)
   errorPrint()

@@ -5,10 +5,7 @@ import openai
 import matplotlib.pyplot as plt
 import seaborn as sns
 import FinanceDataReader as fdr
-from tkinter.tix import COLUMN
-from pyparsing import empty
 from datetime import datetime, timedelta
-import altair as alt
 from bs4 import BeautifulSoup as bs
 import requests
 from selenium import webdriver

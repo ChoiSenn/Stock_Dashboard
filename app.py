@@ -2,7 +2,6 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-from tkinter.tix import COLUMN
 from pyparsing import empty
 from datetime import datetime, timedelta
 import altair as alt

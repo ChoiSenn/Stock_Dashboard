@@ -41,16 +41,11 @@ def naver_news_crawling(keyword,pages):
         soup = bs(html_text,'html.parser')	# BeautifulSoup 객체 생성
 
         titles = soup.select('a.news_tit')	# 가져오려는 태그를 찾아서 넣어준다.
-        st.write("titles : " , titles)
         for title_sen in titles:
             title = title_sen.get_text()
-            st.write("title : " , title)
             all_text.append(title)
-            st.write("all_text : " , all_text)
 
-    st.write("all_all_text : " , all_text)
     all_text = list(all_text)
-    st.write("all_all_all_text : " , all_text)
     return all_text
 
   except Exception as e:
@@ -116,14 +111,14 @@ def graphPrint(df, df_medium, df_change, df_all):
     keyword = select_stock
     pages = 10
     news_data = naver_news_crawling(keyword,pages)
-    st.write("news_data : " + news_data)
+    st.write("news_data : " , news_data)
     nouns_sen = []
     okt = Okt()
     for sen in news_data:
       nouns_sen.extend(okt.nouns(sen))
-    st.write("nouns_sen : " + nouns_sen)
+    st.write("nouns_sen : " , nouns_sen)
     count = Counter(nouns_sen).most_common(50)
-    st.write("count : " + count)
+    st.write("count : " , count)
     wc = WordCloud(font_path='NanumGothic.ttf'
                   , background_color='white', max_font_size = 100, max_words = 55, relative_scaling=.5, width = 300, height = 300)
     cloud = wc.generate_from_frequencies(dict(count))	# 워드클라우드(단어빈도) 설정

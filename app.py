@@ -110,14 +110,11 @@ def graphPrint(df, df_medium, df_change, df_all):
     keyword = select_stock
     pages = 10
     news_data = naver_news_crawling(keyword,pages)
-    st.write("news_data : " , news_data)
     nouns_sen = []
     okt = Okt()
     for sen in news_data:
       nouns_sen.extend(okt.nouns(sen))
-    st.write("nouns_sen : " , nouns_sen)
     count = Counter(nouns_sen).most_common(50)
-    st.write("count : " , count)
     wc = WordCloud(font_path='NanumGothic.ttf'
                   , background_color='white', max_font_size = 100, max_words = 55, relative_scaling=.5, width = 300, height = 300)
     cloud = wc.generate_from_frequencies(dict(count))	# 워드클라우드(단어빈도) 설정

@@ -210,6 +210,6 @@ stocks = fdr.StockListing('KOSPI')
 try:
   stock_code = stocks[stocks['Name']==select_stock]['Code'].to_string(index=False).strip()
   calcurGraph()
-except:
+except Exception as e:
   st.write('오류ㅠㅠ : ' + e)
   errorPrint()

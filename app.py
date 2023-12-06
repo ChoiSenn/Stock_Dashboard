@@ -70,7 +70,7 @@ def graphPrint(df, df_medium, df_change, df_all):
   with tab1:
     st.subheader(select_stock + '의 최근 주가')
     st.write('Open : 거래 시작 시간에 최초로 체결된 가격')
-    st.write('High : 상한가 (주가 최고 상승폭 -> +30%)')
+    st.write('\nHigh : 상한가 (주가 최고 상승폭 -> +30%)')
     st.write('Low : 하한가 (주가 최고 하락폭 -> -30%)')
     st.write('Close : 장이 마감되는 시간의 최종 체결 가격')
     st.write('Volume : 주식 거래량')

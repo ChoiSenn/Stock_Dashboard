@@ -84,7 +84,7 @@ def graphPrint(df, df_medium, df_change, df_all):
     st.area_chart(df_change)
 
     st.subheader(select_stock + '의 캔들스틱 차트')
-    fig1, ax = mpf.plot(df, type='candle', style='yahoo', volume=True)
+    fig1, ax = mpf.plot(df, type='candle', style='yahoo', volume=True, returnfig=True)
     st.pyplot(fig1)
 
     st.subheader(select_stock + '의 골든크로스 / 데드크로스')

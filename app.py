@@ -13,6 +13,7 @@ from collections import Counter
 from wordcloud import WordCloud
 from konlpy.tag import *
 import matplotlib.font_manager as fm
+import mplfinance as mpf
 
 # --- 뉴스 기사 크롤링 ---------------------------------------------------------------
 
@@ -76,11 +77,16 @@ def graphPrint(df, df_medium, df_change, df_all):
     st.subheader(select_stock + '의 주가 변동 폭')
     st.area_chart(df_change)
 
+    st.subheader(select_stock + '의 캔들스틱 차트')
+    fig1 = plt.figure()
+    mpf.plot(df, type='candle', style='yahoo', volume=True)
+    st.pyplot(fig1)
+
     st.subheader(select_stock + '의 골든크로스 / 데드크로스')
     st.write('골든크로스 : 단기 이동 평균선이 장기 이동 평균선 위로 교차하는 차트 패턴. 단기적인 가격 움직임이 상승함에 따라 시장의 추세가 변하고 있으므로, 상승 추세 신호로 간주되어 좋은 매수 시점으로 예상됩니다.')
     st.write('데드크로스 : 단기 이동 평균선이 장기 이동 평균선 아래로 교차하는 차트 패턴. 하락 추세 신호로 간주되어 매도 시점으로 예상됩니다.')
     st.write('But, 모든 평균선은 강세 시장인지, 약세 시장인지에 따라 시사하는 바가 다르므로, 여러가지 지표들을 고려하여 신중하게 투자해야 합니다.')
-    fig, ax = plt.subplots()
+    fig2, ax = plt.subplots()
     cross_above = df_all[(df_all['MA20'] > df_all['MA50']) & (df_all['MA20'].shift(1) <= df_all['MA50'].shift(1))]
     cross_below = df_all[(df_all['MA20'] < df_all['MA50']) & (df_all['MA20'].shift(1) >= df_all['MA50'].shift(1))]
     ax.plot(df_all.index, df_all['Close'], label='Close Price', color='blue', linewidth=0.1)
@@ -92,7 +98,7 @@ def graphPrint(df, df_medium, df_change, df_all):
     ax.set_xlabel('Date')
     ax.set_ylabel('Price')
     ax.legend()
-    st.pyplot(fig)
+    st.pyplot(fig2)
 
   with tab2:
     dfList = df['Close'].tail(20).values.tolist()
